@@ -11,6 +11,7 @@ export const Entry2 = () => {
     },
   ]);
   const [inputValue, setInputValue] = useState("");
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -20,7 +21,7 @@ export const Entry2 = () => {
       <div className="add">
         <div className="main-container">
           <div className="list-container">
-            <div className="list-header">出席リスト</div>
+            <div className="list-header">出席リスト 出席人数は{count}</div>
             <div className="card-container">
               {cards.map((card) => (
                 <div className="card" key={card.id}>
@@ -58,6 +59,8 @@ export const Entry2 = () => {
                   { id: crypto.randomUUID(), text: inputValue },
                 ]);
                 setInputValue("");
+
+                setCount((count) => count + 1);
               }}
             >
               出席
@@ -65,7 +68,7 @@ export const Entry2 = () => {
           </div>
         </div>
       </div>
-      <attendance>出席</attendance>
+      {/* <attendance>出席</attendance> */}
     </>
   );
 };
